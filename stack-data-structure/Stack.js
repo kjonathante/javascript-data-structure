@@ -1,29 +1,29 @@
 class Stack {
-  items = [];
+  items = []
 
   push(element) {
-    this.items.push(element);
+    this.items.push(element)
   }
 
   pop() {
-    return this.items.pop();
+    return this.items.pop()
   }
 
   peek() {
-    return this.items[this.items.length - 1];
+    return this.items[this.items.length - 1]
   }
 
   isEmpty() {
-    return this.items.length === 0;
+    return this.items.length === 0
   }
 
   size() {
-    return this.items.length;
+    return this.items.length
   }
 
   clear() {
-    this.items = [];
+    this.items = []
   }
 }
 
-module.exports = Stack;
+module.exports = Stack
