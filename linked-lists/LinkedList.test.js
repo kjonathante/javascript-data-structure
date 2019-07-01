@@ -37,5 +37,29 @@ describe('LinkedList File', () => {
       assert(linkedList.count === 0)
     })
   })
-  describe('.push()', () => {})
+  describe('.push()', () => {
+    let linkedList
+    before(() => {
+      linkedList = new LinkedList()
+    })
+
+    it('should be a method', () => {
+      // const linkedList = new LinkedList()
+      assert(typeof linkedList.push === 'function')
+    })
+
+    it('accept a value', () => {
+      const value = 'Hello'
+      linkedList.push(value)
+      assert(linkedList.count === 1)
+      assert(linkedList.head.value === value)
+    })
+
+    it('accept another value', () => {
+      const value = 'Hey'
+      linkedList.push(value)
+      assert(linkedList.count === 2)
+      assert(linkedList.head.next.value === value)
+    })
+  })
 })
