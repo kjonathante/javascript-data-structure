@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/kjonathante/javascript-data-structure/issues"
   },
-  "homepage": "https://github.com/kjonathante/javascript-data-structure#readme"
+  "homepage": "https://github.com/kjonathante/javascript-data-structure#readme",
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  }
 }
