@@ -4,7 +4,6 @@ const Node = require('./Node')
 
 describe('Node Class', () => {
   it('should exist', () => {
-    console.log(Node)
     assert(Node !== undefined)
   })
 
@@ -16,5 +15,11 @@ describe('Node Class', () => {
     const str = 'Test'
     const node = new Node(str)
     assert(node.value === str)
+  })
+
+  it('should it should have a next property that defaults to undefined', () => {
+    const str = 'Test'
+    const node = new Node(str)
+    assert(node.next === undefined)
   })
 })
