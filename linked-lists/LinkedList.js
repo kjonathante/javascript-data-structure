@@ -21,6 +21,24 @@ class LinkedList {
     }
     this.count++
   }
+  removeAt(index) {
+    if (index >= 0 && index < this.count) {
+      let current = this.head
+      if (index === 0) {
+        this.head = current.next
+      } else {
+        let previous
+        for (let i = 0; i < index; i++) {
+          previous = current
+          current = current.next
+        }
+        previous.next = current.next
+      }
+      this.count--
+      return current.element
+    }
+    return undefined
+  }
 }
 
 module.exports = LinkedList

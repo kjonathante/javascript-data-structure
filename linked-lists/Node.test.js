@@ -11,10 +11,10 @@ describe('Node Class', () => {
     assert(typeof Node === 'function') // class are just function
   })
 
-  it('should accept a value upon instantiation', () => {
+  it('should accept an element upon instantiation', () => {
     const str = 'Test'
     const node = new Node(str)
-    assert(node.value === str)
+    assert(node.element === str)
   })
 
   it('should it should have a next property that defaults to undefined', () => {
