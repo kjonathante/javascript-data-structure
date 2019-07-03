@@ -98,14 +98,24 @@ describe('LinkedList File', () => {
     it('should be a method', () => {
       assert(typeof linkedList.getElementAt === 'function')
     })
+    it('should return undefined if linkedlist is empty', () => {
+      assert(linkedList.getElementAt(0) === undefined)
+    })
     it('should return undefined if index is out of range', () => {
       assert(linkedList.getElementAt(5) === undefined)
     })
-    it('should return Node object ', ()=>{
+    it('should return Node object after pushing 1 node', ()=>{
       linkedList.push(5)
+      assert(linkedList.getElementAt(0).element === 5)
+      assert(linkedList.getElementAt(1) === undefined)
+    })
+    it('should return Node object after pushing 1 node', ()=>{
       linkedList.push(6)
       linkedList.push(7)
+      assert(linkedList.getElementAt(0).element === 5)
       assert(linkedList.getElementAt(1).element === 6)
+      assert(linkedList.getElementAt(2).element === 7)
+      assert(linkedList.getElementAt(3) === undefined)
     })
   })
 })
