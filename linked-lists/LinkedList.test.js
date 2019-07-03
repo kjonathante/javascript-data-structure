@@ -62,7 +62,6 @@ describe('LinkedList File', () => {
       assert(linkedList.head.next.element === element)
     })
   })
-
   describe('.removeAt()', () => {
     let linkedList
     before(() => {
@@ -71,22 +70,42 @@ describe('LinkedList File', () => {
     it('should be a method', () => {
       assert(typeof linkedList.removeAt === 'function')
     })
-    it('should return undefined if index is out of range', ()=>{
-      assert( linkedList.removeAt(5) === undefined)
+    it('should return undefined if index is out of range', () => {
+      assert(linkedList.removeAt(5) === undefined)
     })
-    it('should remove first item', ()=>{
+    it('should remove first item', () => {
       const element = 5
       linkedList.push(element)
-      assert( linkedList.removeAt(0) === element)
-      assert( linkedList.count === 0)
+      assert(linkedList.removeAt(0) === element)
+      assert(linkedList.count === 0)
     })
-    it('should remove middle item', ()=>{
+    it('should remove middle item then the last item', () => {
       const element = 5
       linkedList.push(element)
-      linkedList.push(element+1)
-      linkedList.push(element+2)
-      assert( linkedList.removeAt(1) === (element+1) )
-      assert( linkedList.count === 2)
+      linkedList.push(element + 1)
+      linkedList.push(element + 2)
+      assert(linkedList.removeAt(1) === element + 1)
+      assert(linkedList.count === 2)
+      assert(linkedList.removeAt(1) === element + 2)
+      assert(linkedList.count === 1)
+    })
+  })
+  describe('./getElementAt()', () => {
+    let linkedList
+    before(() => {
+      linkedList = new LinkedList()
+    })
+    it('should be a method', () => {
+      assert(typeof linkedList.getElementAt === 'function')
+    })
+    it('should return undefined if index is out of range', () => {
+      assert(linkedList.getElementAt(5) === undefined)
+    })
+    it('should return Node object ', ()=>{
+      linkedList.push(5)
+      linkedList.push(6)
+      linkedList.push(7)
+      assert(linkedList.getElementAt(1).element === 6)
     })
   })
 })
