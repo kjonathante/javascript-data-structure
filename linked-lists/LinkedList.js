@@ -47,6 +47,7 @@ class LinkedList {
       }
       return node
     }
+    return undefined
   }
 }
 
