@@ -97,6 +97,43 @@ class BinarySearchTree {
       return true
     }
   }
+
+  remove(key) {
+    this.root = this.removeNode(this.root, key)
+  }
+  removeNode(node, key) {
+    if (node == null) {
+      return null
+    }
+    if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
+      node.left = this.removeNode(node.left, key)
+      return node
+    } else if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
+      node.right = this.removeNode(node.right, key)
+    } else {
+      // key is equal node.key
+      // case 1
+      if(node.left == null && node.right == null) {
+        node = null
+        return node
+      }
+
+      // case 2
+      if (node.left == null) {
+        node = node.right
+        return node
+      } else if (node.right == null) {
+        node = node.left
+        return node
+      }
+
+      // case 3
+      const aux = this.minNode(node.right)
+      node.key = aux.key
+      node.right = this.removeNode(node.right, aux.key)
+      return node
+    }
+  }
 }
 
 const bst = new BinarySearchTree()
@@ -115,5 +152,5 @@ bst.insert(18)
 bst.insert(25)
 bst.inOrderTraverse(r => console.log(r))
 
-console.log( bst.min().key )
-console.log( bst.search(2) )
+console.log(bst.min().key)
+console.log(bst.search(2))
