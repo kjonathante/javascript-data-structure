@@ -59,6 +59,26 @@ class BinarySearchTree {
     }
   }
 
+  traverse() {
+    const result = this.traverseNode(this.root)
+    return result
+  }
+  traverseNode(node) {
+    if (node != null) {
+      const left = this.traverseNode(node.left)
+      const right = this.traverseNode(node.right)
+      const result = {name: node.key}
+      if (left && right) {
+        result.children = [left, right]
+      } else if (left) {
+        result.children = [left]
+      } else if (right) {
+        result.children = [right]
+      }
+      return result
+    }
+  }
+
   min() {
     return this.minNode(this.root)
   }
@@ -136,21 +156,22 @@ class BinarySearchTree {
   }
 }
 
-const bst = new BinarySearchTree()
-bst.insert(7)
-bst.insert(15)
-bst.insert(5)
-bst.insert(3)
-bst.insert(9)
-bst.insert(8)
-bst.insert(10)
-bst.insert(13)
-bst.insert(12)
-bst.insert(14)
-bst.insert(20)
-bst.insert(18)
-bst.insert(25)
-bst.inOrderTraverse(r => console.log(r))
+// const bst = new BinarySearchTree()
+// bst.insert(7)
+// bst.insert(15)
+// bst.insert(5)
+// bst.insert(3)
+// bst.insert(9)
+// bst.insert(8)
+// bst.insert(10)
+// bst.insert(13)
+// bst.insert(12)
+// bst.insert(14)
+// bst.insert(20)
+// bst.insert(18)
+// bst.insert(25)
+// bst.inOrderTraverse(r => console.log(r))
+// console.dir(bst.traverse(), {depth: 10})
 
-console.log(bst.min().key)
-console.log(bst.search(2))
+// console.log(bst.min().key)
+// console.log(bst.search(2))
