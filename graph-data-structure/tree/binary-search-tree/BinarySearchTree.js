@@ -101,6 +101,23 @@ class BinarySearchTree {
     return current
   }
 
+  search(key) {
+    return this.searchNode(this.root, key)
+  }
+
+  searchNode(node, key) {
+    if (node == null) {
+      return false
+    }
+    if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
+      return this.searchNode(node.left, key)
+    }
+    if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
+      return this.searchNode(node.right, key)
+    }
+    return true
+  }
+  
   traverse() {
     const result = this.traverseNode(this.root)
     return result
