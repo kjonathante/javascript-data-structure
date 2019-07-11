@@ -50,39 +50,55 @@ class BinarySearchTree {
   }
 
   inOrderTraverse(callback) {
-    this.inOrderTraverseNode(this.root, callback);
+    this.inOrderTraverseNode(this.root, callback)
   }
 
   inOrderTraverseNode(node, callback) {
     if (node != null) {
-      this.inOrderTraverseNode(node.left, callback);
-      callback(node.key);
-      this.inOrderTraverseNode(node.right, callback);
+      this.inOrderTraverseNode(node.left, callback)
+      callback(node.key)
+      this.inOrderTraverseNode(node.right, callback)
     }
   }
 
   preOrderTraverse(callback) {
-    this.preOrderTraverseNode(this.root, callback);
+    this.preOrderTraverseNode(this.root, callback)
   }
 
   preOrderTraverseNode(node, callback) {
     if (node != null) {
-      callback(node.key);
-      this.preOrderTraverseNode(node.left, callback);
-      this.preOrderTraverseNode(node.right, callback);
+      callback(node.key)
+      this.preOrderTraverseNode(node.left, callback)
+      this.preOrderTraverseNode(node.right, callback)
     }
   }
 
   postOrderTraverse(callback) {
-    this.postOrderTraverseNode(this.root, callback);
+    this.postOrderTraverseNode(this.root, callback)
   }
 
   postOrderTraverseNode(node, callback) {
     if (node != null) {
-      this.postOrderTraverseNode(node.left, callback);
-      this.postOrderTraverseNode(node.right, callback);
-      callback(node.key);
+      this.postOrderTraverseNode(node.left, callback)
+      this.postOrderTraverseNode(node.right, callback)
+      callback(node.key)
     }
+  }
+
+  min() {
+    let current = this.root
+    while (current != null && current.left != null) {
+      current = current.left
+    }
+    return current
+  }
+
+  max() {
+    let current = this.root
+    while (current != null && current.right != null) {
+      current = current.right
+    }
+    return current
   }
 
   traverse() {
@@ -104,4 +120,8 @@ class BinarySearchTree {
       return result
     }
   }
+}
+
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  module.exports = BinarySearchTree
 }
