@@ -4,15 +4,19 @@ bst.insert(7)
 bst.insert(15)
 bst.insert(5)
 bst.insert(3)
-// bst.insert(9)
-// bst.insert(8)
-// bst.insert(10)
-// bst.insert(13)
-// bst.insert(12)
-// bst.insert(14)
-// bst.insert(20)
-// bst.insert(18)
-// bst.insert(25)
+bst.insert(9)
+bst.insert(8)
+bst.insert(10)
+bst.insert(13)
+bst.insert(12)
+bst.insert(14)
+bst.insert(20)
+bst.insert(18)
+bst.insert(25)
+bst.insert(27)
+bst.insert(30)
+bst.insert(46)
+bst.insert(70)
 bst.insert(6)
 // bst.remove(5)
 const data = bst.traverse()
@@ -44,9 +48,9 @@ const treeData = treeLayout(root)
 const nodes = treeData.descendants()
 
 // Normalize for fixed-depth.
-nodes.forEach(function(d) {
-  d.y = d.depth * 100
-})
+// nodes.forEach(function(d) {
+//   d.y = d.depth * 100
+// })
 
 // ****************** Nodes section ***************************
 
