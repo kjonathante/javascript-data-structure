@@ -85,8 +85,8 @@ class BinarySearchTree {
     }
   }
 
-  min() {
-    let current = this.root
+  min(current = this.root) {
+    // let current = this.root
     while (current != null && current.left != null) {
       current = current.left
     }
@@ -117,7 +117,50 @@ class BinarySearchTree {
     }
     return true
   }
-  
+
+  remove(key) {
+    this.root = this.removeNode(this.root, key)
+  }
+
+  removeNode(node, key) {
+    if (node == null) {
+      return undefined
+    }
+
+    if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
+      node.left = this.removeNode(node.left, key)
+      return node
+    }
+    if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
+      node.right = this.removeNode(node.right, key)
+      return node
+    }
+    // key is equal to node.item
+    // handle 3 special conditions
+    // 1 - a leaf node
+    // 2 - a node with only 1 child
+    // 3 - a node with 2 children
+    // case 1
+    if (node.left == null && node.right == null) {
+      node = undefined
+      return node
+    }
+    // case 2
+    if (node.left == null) {
+      node = node.right
+      return node
+    }
+    if (node.right == null) {
+      node = node.left
+      return node
+    }
+    // case 3
+    const aux = this.min(node.right)
+    node.key = aux.key
+    node.right = this.removeNode(node.right, aux.key)
+    return node
+  }
+
   traverse() {
     const result = this.traverseNode(this.root)
     return result

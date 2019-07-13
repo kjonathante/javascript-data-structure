@@ -14,6 +14,7 @@ bst.insert(3)
 // bst.insert(18)
 // bst.insert(25)
 bst.insert(6)
+// bst.remove(5)
 const data = bst.traverse()
 
 const margin = { top: 20, right: 20, bottom: 20, left: 20 }
